@@ -591,13 +591,15 @@ def AddHDDS(env):
 	env.AppendUnique(CPPPATH = ["%s/%s/src" % (hdds_home, env['OSNAME'])])
 	env.AppendUnique(LIBPATH = ["%s/%s/lib" % (hdds_home, env['OSNAME'])])
 
-
 ##################################
 # HDDM
 ##################################
 def AddHDDM(env):
-	env.AppendUnique(LIBS = 'HDDM')
 	env.PrependUnique(OPTIONAL_PLUGIN_LIBS = 'HDDM')
+        libhddm_home = os.getenv('LIBHDDM_HOME', '/no/default/libhddm/path')
+        env.AppendUnique(CPPPATH = libhddm_home + '/include')
+	env.AppendUnique(LIBPATH = libhddm_home + '/lib')
+ 	env.AppendUnique(LIBS = ['HDDM', 'hddm'])
 	Add_xstream(env)
 
 ##################################
@@ -639,12 +641,15 @@ def AddDANA(env):
 # xstream
 ##################################
 def Add_xstream(env):
-	env.AppendUnique(CPPPATH = ['#external/xstream/include'])
+        xstream_home = os.getenv('XSTREAM_HOME', '/no/default/xstream/path')
+	env.AppendUnique(CPPPATH = [xstream_home + '/include'])
 	env.AppendUnique(CPPPATH = ['/usr/include/tirpc'])
 	env.AppendUnique(CCFLAGS = ['-fPIC'])
 	env.AppendUnique(LIBS=['xstream', 'bz2', 'z'])
 	env.AppendUnique(OPTIONAL_PLUGIN_LIBS = ['xstream', 'bz2', 'z'])
-
+        xstream_home = os.getenv('XSTREAM_HOME', '/no/default/xstream/path')
+        env.AppendUnique(CPPPATH = xstream_home + '/include')
+	env.AppendUnique(LIBPATH = xstream_home + '/lib')
 
 ##################################
 # CCDB

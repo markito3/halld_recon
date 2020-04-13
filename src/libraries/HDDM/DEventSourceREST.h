@@ -17,7 +17,7 @@
 #include <JANA/jerror.h>
 #include <JANA/JCalibration.h>
 
-#include "hddm_r.hpp"
+#include "HDDM/hddm_r.hpp"
 
 #include <PID/DMCReaction.h>
 #include <PID/DBeamPhoton.h>
