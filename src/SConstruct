@@ -135,7 +135,7 @@ sbms.ApplyPlatformSpecificSettings(env, osname)
 
 
 # "external" packages (aka xstream)
-SConscript('external/SConscript', variant_dir=".%s/external" % (osname), exports='env osname', duplicate=0)
+#SConscript('external/SConscript', variant_dir=".%s/external" % (osname), exports='env osname', duplicate=0)
 
 # build libraries
 SConscript('libraries/SConscript', variant_dir=".%s/libraries" % (osname), exports='env osname', duplicate=0)
