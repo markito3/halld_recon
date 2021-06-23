@@ -865,6 +865,7 @@ def AddROOT(env):
 			AddROOT.ROOT_CFLAGS    += ' -DHAVE_TMVA=1'
 			AddROOT.ROOT_LINKFLAGS += ' -lTMVA'
 
+	AddROOT.ROOT_CFLAGS = AddROOT.ROOT_CFLAGS.replace(' -std=c++17', '')
 	AddCompileFlags(env, AddROOT.ROOT_CFLAGS)
 	AddLinkFlags(env, AddROOT.ROOT_LINKFLAGS)
 
